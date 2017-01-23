@@ -1,0 +1,179 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Carte pour 2017 ...</title>
+	<link href="css/hot-sneaks/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+
+    <style>
+        body {
+          background-color: #85cff7;
+          font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+          #draggable { width: 100px; height: 100px; border: transparent; background: transparent; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+          
+          #draggable2 { width: 100px; height: 100px; border: transparent; background: transparent; padding: 0.5em; float: left; margin: 25px 25px 25px 0; }
+          
+          #draggable3 { width: 100px; height: 100px; border: transparent; background: transparent; padding: 0.5em; float: bottom; margin: 10px 10px 10px 0; }
+          
+          #draggable4 { width: 100px; height: 100px; border: transparent; background: transparent; padding: 0.5em; float: bottom; margin: 25px 25px 25px 0; }
+                    
+          #droppable { width: 140px; height: 140px; border: transparent; background: transparent; padding: 0.5em; float: left; margin: 10px; }
+          #droppableCasse { width: 140px; height: 140px; border: transparent; background: transparent; padding: 0.5em; float: left; margin: 10px; }
+          
+          #droppable2 { width: 140px; height: 140px; border: transparent; background: transparent;  padding: 0.5em; float: right; margin: 400px; }
+          #droppableCasse2 { width: 140px; height: 140px; border: transparent; background: transparent; padding: 0.5em; float: right; margin: 400px; }
+          
+          #droppable3 { width: 140px; height: 140px; border: transparent; background: transparent; padding: 0.5em; float: top; margin: 200px; }
+          #droppableCasse3 { width: 140px; height: 140px; border: transparent; background: transparent; padding: 0.5em; float: top; margin: 200px; }
+          
+          #droppable4 { width: 140px; height: 140px; border: transparent; background: transparent; padding: 0.5em; float: top; margin: 200px; }
+          #droppableCasse4 { width: 140px; height: 140px; border: transparent; background: transparent; padding: 0.5em; float: top; margin: 200px; }
+          
+        .introBody { /* ici j'explique ce qu'il faut faire */
+          background: url('img/intro.png') no-repeat;
+          background-size: 80%;
+        }
+        .newBody{ /* cette classe va permettre d'afficher l'image de sante */
+          background: url('img/sante.jpg') no-repeat;
+          background-size: 80%;
+        }
+        .newBody2{ /* cette classe va permettre d'afficher l'image d'amour */
+          background: url('img/amour.jpg') no-repeat;
+          background-size: 80%;
+        }
+        .newBody3{ /* cette classe va permettre d'afficher l'image de reussite */
+          background: url('img/reussite.jpg') no-repeat;
+          background-size: 80%;
+        }
+        .newBody4{ /* cette classe va permettre d'afficher l'image a la fin */
+          background: url('img/2017.jpg') no-repeat;
+          background-size: 80%;
+        }
+    </style>
+  
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script>
+    $( function() {
+        $( "#draggable" ).draggable();
+        $( "#draggable2" ).draggable();
+        $( "#draggable3" ).draggable();
+        $( "#draggable4" ).draggable();
+        
+        $('body').addClass("introBody");
+
+        $( "#droppable" ).droppable({
+          drop: function( event, ui ) {
+            $( this ).toggle() ;
+            $( "#droppableCasse" ).toggle();
+            $( "#draggable" ).hide();
+            $( "#draggable2" ).show();
+            $( "#droppableCasse" ).toggle("Fade");
+            $( "#droppable2" ).toggle("Fade");
+            $('body').addClass("newBody");
+          }
+        });
+
+        $( "#droppable2" ).droppable({
+          drop: function( event, ui ) {
+            $( this ).toggle() ;
+            $( "#droppableCasse2" ).toggle();
+            $( "#draggable2" ).hide();
+            $( "#draggable3" ).show();
+            $( "#droppableCasse2" ).toggle("Fade");
+            $( "#droppable3" ).toggle("Fade");
+            $('body').addClass("newBody2");
+          }
+        });
+
+        $( "#droppable3" ).droppable({
+          drop: function( event, ui ) {
+            $( this ).toggle() ;
+            $( "#droppableCasse3" ).toggle();
+            $( "#draggable3" ).hide();
+            $( "#draggable4" ).show();
+            $( "#droppableCasse3" ).toggle("Fade");
+            $( "#droppable4" ).toggle("Fade");
+            $('body').addClass("newBody3");
+          }
+        });
+
+        $( "#droppable4" ).droppable({
+          drop: function( event, ui ) {
+            $( this ).toggle() ;
+            $( "#droppableCasse4" ).toggle();
+            $( "#droppableCasse4" ).toggle("Fade");
+            $( "#draggable4" ).toggle("Fade");
+            $('body').addClass("newBody4");
+          }
+        });
+
+         $( "#droppable2" ).hide();
+         $( "#droppable3" ).hide();
+         $( "#draggable2" ).hide();
+         $( "#draggable3" ).hide();
+         $( "#draggable4" ).hide();
+         $( "#droppable4" ).hide();
+         $( "#droppableCasse" ).hide();
+         $( "#droppableCasse2" ).hide();
+         $( "#droppableCasse3" ).hide();
+         $( "#droppableCasse4" ).hide();
+    });
+    
+
+    </script>
+</head>
+
+<body>
+ 
+        <div id="draggable" class="ui-widget-content">
+          <img src="img/marteau2.png" class="drag-image" id="draggable"/>           
+        </div>   
+    
+        <div id="draggable2" class="ui-widget-content">
+          <img src="img/marteau2.png" class="drag-image" id="draggable2"/>
+        </div>  
+
+        <div id="draggable3" class="ui-widget-content">
+          <img src="img/marteau.png" class="drag-image" id="draggable3"/>
+        </div>      
+
+        <div id="draggable4" class="ui-widget-content">
+          <img src="img/marteau.png" class="drag-image" id="draggable4"/>
+        </div>      
+        
+        <div id="droppable" class="ui-widget-header">
+          <img src="img/vitre.png" />
+        </div>
+        <div id="droppableCasse" class="ui-widget-header">
+          <img src="img/vitre-casse.png" />
+        </div>
+
+        <div id="droppable2" class="ui-widget-header" >
+          <img src="img/vitre.png" />
+        </div>
+        <div id="droppableCasse2" class="ui-widget-header">
+          <img src="img/vitre-casse.png" />
+        </div>
+
+        <div id="droppable3" class="ui-widget-header">
+          <img src="img/vitre.png" />
+        </div>
+        <div id="droppableCasse3" class="ui-widget-header">
+          <img src="img/vitre-casse.png" />
+        </div>
+
+        <div id="droppable4" class="ui-widget-header">
+          <img src="img/vitre.png" />
+        </div>
+        <div id="droppableCasse4" class="ui-widget-header">
+          <img src="img/vitre-casse.png" />
+        </div>
+
+
+</body>
+
